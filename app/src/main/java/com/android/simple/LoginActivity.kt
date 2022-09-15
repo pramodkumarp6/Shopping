@@ -19,6 +19,7 @@ import okhttp3.ResponseBody
 
 
 class LoginActivity : AppCompatActivity() {
+    private ActivityLoginBinding binding;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
