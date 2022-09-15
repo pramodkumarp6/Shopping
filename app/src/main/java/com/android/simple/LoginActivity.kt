@@ -6,40 +6,40 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.android.simple.app.RetrofitClient
+import com.android.simple.databinding.ActivityLoginBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import com.android.simple.model.DefaultResponse
 import com.android.simple.model.LoginResponse
 
-import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.editTextPassword
-import okhttp3.ResponseBody
+
+
 
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var  binding: ActivityLoginBinding;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         title="Login"
 
 
-        buttonLogin.setOnClickListener{
+        binding. buttonLogin.setOnClickListener{
 
             val progressDialog = ProgressDialog(this@LoginActivity)
-            val email = editemail.text.toString().trim()
-            val password = editTextPassword.text.toString().trim()
+            val email = binding.editemail.text.toString().trim()
+            val password = binding.editTextPassword.text.toString().trim()
                     if(email.isEmpty()){
-                        editemail.error="Required Email"
-                        editemail.requestFocus()
+                        binding. editemail.error="Required Email"
+                        binding.editemail.requestFocus()
                         return@setOnClickListener
 
                     }
 
             if(password.isEmpty()){
-                editTextPassword.error="Required Pasword"
-                editTextPassword.requestFocus()
+                binding.editTextPassword.error="Required Pasword"
+                binding.editTextPassword.requestFocus()
                 return@setOnClickListener
             }
             progressDialog.setTitle("Login..")
@@ -78,11 +78,11 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-           textViewRegister2.setOnClickListener {
+        binding. textViewRegister2.setOnClickListener {
                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
            }
 
-               textViewRegister1.setOnClickListener {
+        binding. textViewRegister1.setOnClickListener {
                    startActivity(Intent(this@LoginActivity,ResetPassword::class.java))
                }
 

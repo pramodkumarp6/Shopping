@@ -5,48 +5,50 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.android.simple.app.RetrofitClient
+import com.android.simple.databinding.ActivityMainBinding
 import com.android.simple.model.DefaultResponse
-import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var mainBinding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        mainBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(mainBinding.root)
         title= "Registration"
 
-        buttonSignUp.setOnClickListener {
+        mainBinding.buttonSignUp.setOnClickListener {
 
             val progressDialog = ProgressDialog(this@MainActivity)
-            val email = editTextEmail.text.toString().trim()
-            val password = editTextPassword.toString().trim()
-            val name = editTextName.text.toString().trim()
-            val gender = editTextSchool.text.toString().trim()
+            val email = mainBinding.editTextEmail.text.toString().trim()
+            val password = mainBinding.editTextPassword.toString().trim()
+            val name = mainBinding.editTextName.text.toString().trim()
+            val gender = mainBinding.editTextSchool.text.toString().trim()
 
             if (email.isEmpty()) {
-                editTextEmail.error = "email is Requied"
-                editTextEmail.requestFocus()
+                mainBinding.editTextEmail.error = "email is Requied"
+                mainBinding.editTextEmail.requestFocus()
                 return@setOnClickListener
 
             }
 
             if (password.isEmpty()) {
-                editTextPassword.error = "Password is Required"
-                editTextPassword.requestFocus()
+                mainBinding.editTextPassword.error = "Password is Required"
+                mainBinding.editTextPassword.requestFocus()
                 return@setOnClickListener
             }
 
             if (name.isEmpty()) {
-                editTextName.error = "Name is Reqiued "
-                editTextName.requestFocus()
+                mainBinding.editTextName.error = "Name is Reqiued "
+                mainBinding.editTextName.requestFocus()
                 return@setOnClickListener
             }
 
             if (gender.isEmpty()) {
-                editTextSchool.error = "School is Required"
-                editTextSchool.requestFocus()
+                mainBinding.editTextSchool.error = "School is Required"
+                mainBinding.editTextSchool.requestFocus()
                 return@setOnClickListener
 
 
