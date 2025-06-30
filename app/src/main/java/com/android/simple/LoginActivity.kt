@@ -10,36 +10,36 @@ import com.android.simple.databinding.ActivityLoginBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import com.android.simple.model.DefaultResponse
 import com.android.simple.model.LoginResponse
 
 
 
 
-
 class LoginActivity : AppCompatActivity() {
-    private lateinit var  binding: ActivityLoginBinding;
+    private lateinit var loginbinding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        loginbinding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(loginbinding.root)
         title="Login"
 
 
-        binding. buttonLogin.setOnClickListener{
+        loginbinding.buttonLogin.setOnClickListener{
 
             val progressDialog = ProgressDialog(this@LoginActivity)
-            val email = binding.editemail.text.toString().trim()
-            val password = binding.editTextPassword.text.toString().trim()
+            val email = loginbinding.editemail.text.toString().trim()
+            val password = loginbinding.editTextPassword.text.toString().trim()
                     if(email.isEmpty()){
-                        binding. editemail.error="Required Email"
-                        binding.editemail.requestFocus()
+                        loginbinding.editemail.error="Required Email"
+                        loginbinding.editemail.requestFocus()
                         return@setOnClickListener
 
                     }
 
             if(password.isEmpty()){
-                binding.editTextPassword.error="Required Pasword"
-                binding.editTextPassword.requestFocus()
+                loginbinding.editTextPassword.error="Required Pasword"
+                loginbinding.editTextPassword.requestFocus()
                 return@setOnClickListener
             }
             progressDialog.setTitle("Login..")
@@ -78,11 +78,11 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-        binding. textViewRegister2.setOnClickListener {
+        loginbinding.textViewRegister2.setOnClickListener {
                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
            }
 
-        binding. textViewRegister1.setOnClickListener {
+        loginbinding.textViewRegister1.setOnClickListener {
                    startActivity(Intent(this@LoginActivity,ResetPassword::class.java))
                }
 
