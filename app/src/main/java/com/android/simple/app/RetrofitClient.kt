@@ -1,11 +1,7 @@
 package com.android.simple.app
 
-import android.util.Base64.NO_WRAP
-import android.util.Base64.encodeToString
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.*
 
 object RetrofitClient {
    // private val Auth = "Basic " + Base64.encodeToString("user:123456".toByteArray(), Base64.NO_WRAP)
@@ -24,12 +20,12 @@ object RetrofitClient {
 
         }.build()
 */
-    val instance: Api by lazy {
+    val instance: ApiService by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URl)
             .addConverterFactory(GsonConverterFactory.create())
            // .client(okHttpClient)
             .build()
-        retrofit.create(Api::class.java)
+        retrofit.create(ApiService::class.java)
     }
 }
