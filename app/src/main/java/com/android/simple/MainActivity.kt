@@ -4,7 +4,7 @@ import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.android.simple.app.RetrofitClient
+import com.android.simple.di.RetrofitClient
 import com.android.simple.databinding.ActivityMainBinding
 import com.android.simple.model.DefaultResponse
 import retrofit2.Call

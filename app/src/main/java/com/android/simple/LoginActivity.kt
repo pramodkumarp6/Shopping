@@ -5,12 +5,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.android.simple.app.RetrofitClient
+import com.android.simple.di.RetrofitClient
 import com.android.simple.databinding.ActivityLoginBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import com.android.simple.model.DefaultResponse
 import com.android.simple.model.LoginResponse
 
 

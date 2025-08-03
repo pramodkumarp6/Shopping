@@ -1,4 +1,4 @@
-package com.android.simple.app
+package com.android.simple.di
 
 
 import com.android.simple.model.DefaultResponse

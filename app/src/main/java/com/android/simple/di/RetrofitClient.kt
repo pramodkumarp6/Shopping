@@ -1,4 +1,4 @@
-package com.android.simple.app
+package com.android.simple.di
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
