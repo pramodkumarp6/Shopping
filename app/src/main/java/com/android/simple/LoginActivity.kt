@@ -78,7 +78,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         loginbinding.textViewRegister2.setOnClickListener {
-               startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+               startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
            }
 
         loginbinding.textViewRegister1.setOnClickListener {

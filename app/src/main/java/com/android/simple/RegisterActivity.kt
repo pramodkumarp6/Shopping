@@ -11,7 +11,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
     private lateinit var mainBinding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         mainBinding.buttonSignUp.setOnClickListener {
 
-            val progressDialog = ProgressDialog(this@MainActivity)
+            val progressDialog = ProgressDialog(this@RegisterActivity)
             val email = mainBinding.editTextEmail.text.toString().trim()
             val password = mainBinding.editTextPassword.toString().trim()
             val name = mainBinding.editTextName.text.toString().trim()
