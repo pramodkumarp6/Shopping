@@ -28,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
 
             val progressDialog = ProgressDialog(this@LoginActivity)
             val email = loginbinding.editemail.text.toString().trim()
-            val password = loginbinding.editTextPassword.text.toString().trim()
+            val  password = loginbinding.editTextPassword.text.toString().trim()
                     if(email.isEmpty()){
                         loginbinding.editemail.error="Required Email"
                         loginbinding.editemail.requestFocus()
