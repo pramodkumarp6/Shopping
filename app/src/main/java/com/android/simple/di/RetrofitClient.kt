@@ -1,7 +1,8 @@
 package com.android.simple.di
 
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
+
 
 object RetrofitClient {
    // private val Auth = "Basic " + Base64.encodeToString("user:123456".toByteArray(), Base64.NO_WRAP)
@@ -20,12 +21,13 @@ object RetrofitClient {
 
         }.build()
 */
-    val instance: ApiService by lazy {
-        val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URl)
-            .addConverterFactory(GsonConverterFactory.create())
-           // .client(okHttpClient)
-            .build()
-        retrofit.create(ApiService::class.java)
-    }
+   val instance: ApiService by lazy {
+       val retrofit = Retrofit.Builder()
+           .baseUrl(BASE_URl)
+           .addConverterFactory(MoshiConverterFactory.create())
+           // .client(okHttpClient) // Optional
+           .build()
+
+       retrofit.create(ApiService::class.java)
+   }
 }
