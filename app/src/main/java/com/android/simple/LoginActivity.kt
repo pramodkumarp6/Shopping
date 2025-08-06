@@ -5,14 +5,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.android.simple.di.RetrofitClient
 import com.android.simple.databinding.ActivityLoginBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import com.android.simple.model.LoginResponse
-
-
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 
 class LoginActivity : AppCompatActivity() {
@@ -21,23 +18,23 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         loginbinding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(loginbinding.root)
-        title="Login"
+        title = "Login"
 
 
-        loginbinding.buttonLogin.setOnClickListener{
+        loginbinding.buttonLogin.setOnClickListener {
 
             val progressDialog = ProgressDialog(this@LoginActivity)
             val email = loginbinding.editemail.text.toString().trim()
-            val  password = loginbinding.editTextPassword.text.toString().trim()
-                    if(email.isEmpty()){
-                        loginbinding.editemail.error="Required Email"
-                        loginbinding.editemail.requestFocus()
-                        return@setOnClickListener
+            val password = loginbinding.editTextPassword.text.toString().trim()
+            if (email.isEmpty()) {
+                loginbinding.editemail.error = "Required Email"
+                loginbinding.editemail.requestFocus()
+                return@setOnClickListener
 
-                    }
+            }
 
-            if(password.isEmpty()){
-                loginbinding.editTextPassword.error="Required Pasword"
+            if (password.isEmpty()) {
+                loginbinding.editTextPassword.error = "Required Pasword"
                 loginbinding.editTextPassword.requestFocus()
                 return@setOnClickListener
             }
@@ -45,36 +42,40 @@ class LoginActivity : AppCompatActivity() {
             progressDialog.setMessage("loding")
             progressDialog.show()
 
-             RetrofitClient.instance.login(email,password)
-                 .enqueue(object :Callback<LoginResponse>{
-                     override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+
+            lifecycleScope.launch {
+
+                try {
+                    val response = RetrofitClient.instance.login(email, password)
+                    if (!response.error!!) {
+                        val intent = Intent(applicationContext, ProfileActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(intent)
+
+                    } else {
+                        Toast.makeText(this@LoginActivity, response.message, Toast.LENGTH_LONG)
+                            .show();
+                    }
+
+                } catch (e: HttpException){
+                    Toast.makeText(this@LoginActivity, "Network Error: ${e.message()}", Toast.LENGTH_LONG).show()
 
 
-                     }
+                } catch (e: Exception) {
+                    Toast.makeText(this@LoginActivity, "Unexpected Error: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
 
-                     override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                         progressDialog.hide()
-                         //Toast.makeText(applicationContext,response.body()?.message ,Toast.LENGTH_LONG).show();
+                }
 
-                         if(!response.body()?.error!!){
-                             val intent = Intent(applicationContext,ProfileActivity::class.java)
-                             intent.flags=Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                           startActivity(intent)
+            }
 
-                         }else{
-                             Toast.makeText(applicationContext,response.body()?.message ,Toast.LENGTH_LONG).show();
-                         }
 
-                     }
 
-                 })
+
 
 
 
 
         }
-
-
 
 
         loginbinding.textViewRegister2.setOnClickListener {

@@ -1,4 +1,23 @@
 package com.android.simple.viewmodels
 
-class LoginViewModel {
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
+
+class LoginViewModel : ViewModel(){
+
+
+    fun login(){
+        viewModelScope.launch {
+            try {
+
+            }catch (e: Exception){
+
+            }
+        }
+    }
+
+
+
+
 }

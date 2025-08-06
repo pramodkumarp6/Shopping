@@ -4,11 +4,14 @@ import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.android.simple.di.RetrofitClient
 import com.android.simple.databinding.ActivityMainBinding
 import com.android.simple.model.DefaultResponse
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
+import retrofit2.HttpException
 import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
@@ -17,7 +20,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
-        title= "Registration"
+        title = "Registration"
 
         mainBinding.buttonSignUp.setOnClickListener {
 
@@ -57,28 +60,46 @@ class RegisterActivity : AppCompatActivity() {
             progressDialog.setMessage("Application is loading, please wait")
             progressDialog.show()
 
-            RetrofitClient.instance.createUser(email, password, name, gender)
 
-                .enqueue(object: Callback<DefaultResponse> {
+            lifecycleScope.launch {
+                try {
 
-                    override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                    val response = RetrofitClient.instance.createUser(email, password, name, gender)
+                    Toast.makeText(applicationContext, response.toString(), Toast.LENGTH_LONG)
+                        .show()
 
-                        Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
-                    }
+                } catch (e: HttpException) {
 
-                    override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
-                        progressDialog.hide()
-                        Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_LONG).show()
-                    }
+                    progressDialog.hide()
+                    Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG).show()
 
-                })
+                } catch (e: Exception) {
 
-
+                }
+            }
+        }
     }
 }
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
