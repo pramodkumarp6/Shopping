@@ -1,5 +1,6 @@
 package com.android.simple.di
 
+import com.android.simple.utils.Urls
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,7 +32,7 @@ object RetrofitClient {
    @Provides
    fun provideRetrofit(): Retrofit {
        return Retrofit.Builder()
-           .baseUrl("BASE_URL")
+           .baseUrl(Urls.BASE_URl)
            .addConverterFactory(MoshiConverterFactory.create())
            .build()
    }
