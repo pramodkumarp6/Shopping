@@ -1,9 +1,15 @@
 package com.android.simple.di
 
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import javax.inject.Singleton
 
-
+@Module
+@InstallIn(SingletonComponent::class)
 object RetrofitClient {
    // private val Auth = "Basic " + Base64.encodeToString("user:123456".toByteArray(), Base64.NO_WRAP)
    //private val AUTH = "Basic "+ Base64.encodeToString("belalkhan:123456".toByteArray(), Base64.NO_WRAP)
@@ -21,13 +27,17 @@ object RetrofitClient {
 
         }.build()
 */
-   val instance: ApiService by lazy {
-       val retrofit = Retrofit.Builder()
-           .baseUrl(BASE_URl)
+   @Singleton
+   @Provides
+   fun provideRetrofit(): Retrofit {
+       return Retrofit.Builder()
+           .baseUrl("BASE_URL")
            .addConverterFactory(MoshiConverterFactory.create())
-           // .client(okHttpClient) // Optional
            .build()
-
-       retrofit.create(ApiService::class.java)
    }
+    @Singleton
+    @Provides
+    fun provideApiService(retrofit: Retrofit): ApiService {
+        return retrofit.create(ApiService::class.java)
+    }
 }

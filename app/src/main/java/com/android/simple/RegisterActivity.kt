@@ -64,14 +64,6 @@ class RegisterActivity : AppCompatActivity() {
             lifecycleScope.launch {
                 try {
 
-                    val response = RetrofitClient.instance.createUser(email, password, name, gender)
-                    Toast.makeText(applicationContext, response.toString(), Toast.LENGTH_LONG)
-                        .show()
-
-                } catch (e: HttpException) {
-
-                    progressDialog.hide()
-                    Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG).show()
 
                 } catch (e: Exception) {
 

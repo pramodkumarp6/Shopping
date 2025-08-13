@@ -2,12 +2,17 @@ package com.android.simple.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.android.simple.repositories.LoginRepository
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class LoginViewModel : ViewModel(){
+@HiltViewModel
+class LoginViewModel @Inject constructor(loginRepository: LoginRepository) : ViewModel(){
 
 
-    fun login(){
+    fun login(email: String, password: String) {
         viewModelScope.launch {
             try {
 
