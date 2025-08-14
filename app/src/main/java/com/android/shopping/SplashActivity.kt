@@ -33,6 +33,7 @@ class SplashActivity : AppCompatActivity() {
             delay(3000)  // Simulate network delay
             val intent = Intent(this@SplashActivity, LoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
 
