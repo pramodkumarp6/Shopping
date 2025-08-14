@@ -8,20 +8,19 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(loginRepository: LoginRepository) : ViewModel(){
+class LoginViewModel @Inject constructor(private val loginRepository: LoginRepository) :
+    ViewModel() {
 
 
-    fun login(email: String, password: String) {
+    fun loginUser(email: String, password: String) {
         viewModelScope.launch {
             try {
-
-            }catch (e: Exception){
+                val result = loginRepository.loginUser(email, password)
+            } catch (e: Exception) {
 
             }
         }
     }
-
-
 
 
 }

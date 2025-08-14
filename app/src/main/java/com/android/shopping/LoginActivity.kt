@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
 
             loginUser()
 
-            val progressDialog = ProgressDialog(this@LoginActivity)
+            //val progressDialog = ProgressDialog(this@LoginActivity)
 
 
 
@@ -45,9 +45,9 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-            progressDialog.setTitle("Login..")
-            progressDialog.setMessage("loding")
-            progressDialog.show()
+          //  progressDialog.setTitle("Login..")
+           // progressDialog.setMessage("loding")
+           // progressDialog.show()
 
 
             lifecycleScope.launch {
@@ -61,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
         val email = loginbinding.editemail.text.toString().trim()
         val password = loginbinding.editTextPassword.text.toString().trim()
 
-        viewModel.login(email,password)
+        viewModel.loginUser(email,password)
     }
 
 }

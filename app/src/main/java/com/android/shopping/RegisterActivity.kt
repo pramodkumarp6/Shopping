@@ -3,12 +3,20 @@ package com.android.shopping
 import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.android.shopping.databinding.ActivityMainBinding
+import com.android.shopping.viewmodels.LoginViewModel
+import com.android.shopping.viewmodels.RegisterViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import kotlin.getValue
 
+
+@AndroidEntryPoint
 class RegisterActivity : AppCompatActivity() {
     private lateinit var mainBinding: ActivityMainBinding
+    private val registerViewModel: RegisterViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
