@@ -1,6 +1,6 @@
 package com.android.shopping.di
 
-import com.android.shopping.data.ApiService
+import com.android.shopping.data.remote.AuthService
 import com.android.shopping.utils.Urls
 import dagger.Module
 import dagger.Provides
@@ -14,7 +14,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetWorkModule {
-   // private val Auth = "Basic " + Base64.encodeToString("user:123456".toByteArray(), Base64.NO_WRAP)
+   // private val AuthRepository = "Basic " + Base64.encodeToString("user:123456".toByteArray(), Base64.NO_WRAP)
    //private val AUTH = "Basic "+ Base64.encodeToString("belalkhan:123456".toByteArray(), Base64.NO_WRAP)
    @Singleton
    @Provides
@@ -27,7 +27,7 @@ object NetWorkModule {
         .addInterceptor{chain ->
             val original =chain.request()
             val requestBuilder = original.newBuilder()
-                .addHeader("Authentication", Auth)
+                .addHeader("Authentication", AuthRepository)
 
                 .method(original.method(), original.body())
             val request = requestBuilder.build()
@@ -46,7 +46,7 @@ object NetWorkModule {
    }
     @Singleton
     @Provides
-    fun provideApiService(retrofit: Retrofit): ApiService {
-        return retrofit.create(ApiService::class.java)
+    fun provideApiService(retrofit: Retrofit): AuthService {
+        return retrofit.create(AuthService::class.java)
     }
 }
