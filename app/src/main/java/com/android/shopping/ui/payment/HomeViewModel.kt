@@ -1,4 +1,4 @@
-package com.android.shopping.ui.home
+package com.android.shopping.ui.payment
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
