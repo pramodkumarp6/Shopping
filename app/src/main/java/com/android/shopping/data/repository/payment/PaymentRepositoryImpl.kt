@@ -1,4 +1,4 @@
-package com.android.shopping.data.repository
+package com.android.shopping.data.repository.payment
 
 import com.android.shopping.data.remote.AuthService
 import dagger.hilt.android.scopes.ViewModelScoped
