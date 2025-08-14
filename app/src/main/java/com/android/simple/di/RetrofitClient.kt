@@ -1,5 +1,6 @@
 package com.android.simple.di
 
+import com.android.simple.data.ApiService
 import com.android.simple.utils.Urls
 import dagger.Module
 import dagger.Provides

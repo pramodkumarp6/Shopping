@@ -1,14 +1,10 @@
-package com.android.simple.di
-
+package com.android.simple.data
 
 import com.android.simple.model.DefaultResponse
 import com.android.simple.model.LoginResponse
-import retrofit2.Call
-import retrofit2.http.FormUrlEncoded
-
 import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
-
 
 interface ApiService {
     @FormUrlEncoded
@@ -27,5 +23,5 @@ interface ApiService {
               @Field("password")password: String
 
 
-    ):LoginResponse
+    ): LoginResponse
 }
