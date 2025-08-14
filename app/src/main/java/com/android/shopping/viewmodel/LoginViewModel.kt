@@ -2,7 +2,7 @@ package com.android.shopping.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.android.shopping.data.repository.AuthRepository
+import com.android.shopping.data.repository.auth.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,7 +15,7 @@ class LoginViewModel @Inject constructor(private val authRepository: AuthReposit
     fun loginUser(email: String, password: String) {
         viewModelScope.launch {
             try {
-                val result = authRepository.loginUser(email, password)
+                val result = authRepository.login(email, password)
             } catch (e: Exception) {
 
             }
