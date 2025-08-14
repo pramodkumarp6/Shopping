@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.android.simple"
+    namespace = "com.android.shopping"
     compileSdk = 36
 
     defaultConfig {
