@@ -11,7 +11,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.android.simple"
+        applicationId = "com.android.shopping"
         minSdk = 25
         targetSdk = 36
         versionCode = 1
