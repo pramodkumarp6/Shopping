@@ -5,6 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presenation.ui.splash.SplashActivity">
+    tools:context=".presenation.ui.delivery.DeliveryActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

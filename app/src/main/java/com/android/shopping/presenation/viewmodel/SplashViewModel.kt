@@ -1,26 +1,28 @@
-package com.android.shopping.viewmodel
+package com.android.shopping.presenation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.shopping.data.repository.auth.AuthRepository
+import com.android.shopping.data.repository.payment.PaymentRepositoryImp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+
+
 @HiltViewModel
-class LoginViewModel @Inject constructor(private val authRepository: AuthRepository) :
-    ViewModel() {
+class SplashViewModel @Inject constructor(private val authRepository: AuthRepository): ViewModel() {
 
 
-    fun loginUser(email: String, password: String) {
+    fun splash(){
         viewModelScope.launch {
             try {
-                val result = authRepository.login(email, password)
-            } catch (e: Exception) {
+
+
+            } catch (e: Exception){
 
             }
+
         }
     }
-
-
 }

@@ -1,4 +1,4 @@
-package com.android.shopping.ui.auth
+package com.android.shopping.presenation.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.android.shopping.databinding.ActivityLoginBinding
-import com.android.shopping.viewmodel.LoginViewModel
+import com.android.shopping.presenation.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

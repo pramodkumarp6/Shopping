@@ -1,13 +1,13 @@
-package com.android.shopping.ui.splash
+package com.android.shopping.presenation.ui.splash
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.android.shopping.ui.auth.LoginActivity
+import com.android.shopping.presenation.ui.auth.LoginActivity
 import com.android.shopping.R
-import com.android.shopping.viewmodel.SplashViewModel
+import com.android.shopping.presenation.viewmodel.SplashViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

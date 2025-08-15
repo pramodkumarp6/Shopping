@@ -1,4 +1,4 @@
-package com.android.shopping.ui.auth
+package com.android.shopping.presenation.ui.auth
 
 import android.app.ProgressDialog
 import android.os.Bundle
@@ -6,7 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.android.shopping.databinding.ActivityMainBinding
-import com.android.shopping.viewmodel.RegisterViewModel
+import com.android.shopping.presenation.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

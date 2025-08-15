@@ -1,4 +1,4 @@
-package com.android.shopping.ui.profile
+package com.android.shopping.presenation.ui.profile
 
 import android.os.Bundle
 import android.view.Menu

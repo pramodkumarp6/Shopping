@@ -1,10 +1,10 @@
-package com.android.shopping.ui.auth
+package com.android.shopping.presenation.ui.auth
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.android.shopping.R
-import com.android.shopping.viewmodel.ForgetViewModel
+import com.android.shopping.presenation.viewmodel.ForgetViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
