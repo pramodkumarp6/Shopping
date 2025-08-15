@@ -1,5 +1,6 @@
 package com.android.shopping.data.repository.auth
 
+import com.android.shopping.domain.repository.AuthRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

@@ -1,6 +1,7 @@
 package com.android.shopping.data.repository.auth
 
 import com.android.shopping.data.remote.AuthService
+import com.android.shopping.domain.repository.AuthRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 
