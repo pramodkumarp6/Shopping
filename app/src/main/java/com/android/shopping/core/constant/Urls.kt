@@ -1,4 +1,4 @@
-package com.android.shopping.utils
+package com.android.shopping.core.constant
 
 class Urls {
 

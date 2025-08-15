@@ -1,4 +1,4 @@
-package com.android.shopping.data.repository.auth
+package com.android.shopping.domain.repository
 
 interface AuthRepository {
 
