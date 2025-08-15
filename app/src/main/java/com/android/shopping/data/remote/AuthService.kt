@@ -1,7 +1,7 @@
 package com.android.shopping.data.remote
 
-import com.android.shopping.data.model.DefaultResponse
-import com.android.shopping.data.model.LoginResponse
+import com.android.shopping.domain.model.DefaultResponse
+import com.android.shopping.domain.model.LoginResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST

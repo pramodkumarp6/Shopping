@@ -1,4 +1,4 @@
-package com.android.shopping.data.model
+package com.android.shopping.domain.model
 
 
 
